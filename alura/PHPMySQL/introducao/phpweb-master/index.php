@@ -1,11 +1,12 @@
-<?php 
+<?php
 require 'config.php';
-include_once 'Artigo.php';
-$artigo = new Artigo();
+include 'src/Artigo.php';
+$artigo = new Artigo($mysql);
 $artigos = $artigo->exibirTodos();
- ?>
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <title>Meu Blog</title>
     <meta charset="UTF-8">
@@ -15,16 +16,16 @@ $artigos = $artigo->exibirTodos();
 <body>
     <div id="container">
         <h1>Meu Blog</h1>
-        <?php foreach($artigos as $artigo ):?>
-        <h2>
-            <a href="<?php echo $artigo['link'];?>">
-                <?php echo $artigo['titulo'];?>
-            </a>
-        </h2>
-        <p>
-            <?php echo $artigo['conteudo'];?>
+        <?php foreach ($artigos as $artigo) : ?>
+            <h2>
+                <a href="artigo.php?titulo=<?php echo $artigo['titulo'];?>">
+                    <?php echo $artigo['titulo']; ?>
+                </a>
+            </h2>
+            <p>
+                <?php echo $artigo['conteudo']; ?>
 
-        </p>
+            </p>
         <?php endforeach; ?>
 
     </div>
