@@ -25,4 +25,10 @@ class Artigo
         
         return $artigo;
     }
+
+    public function adicionar(string $titulo, string $conteudo): void{
+        $resultado = $this->mysql->prepare("INSERT INTO artigos (titulo, conteudo) VALUES (?, ?);");
+        $resultado->bind_param('ss', $titulo, $conteudo);
+        $resultado->execute();
+    }
 }
