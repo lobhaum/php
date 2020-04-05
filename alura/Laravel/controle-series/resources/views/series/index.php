@@ -6,6 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p>Olá mundo :: Series :: </p>
+
+    <ul>
+        <?php foreach ($series as $serie) { ?>
+        <li><?php echo $serie; ?></li>
+        <?php }?>
+    </ul>
 </body>
 </html>
