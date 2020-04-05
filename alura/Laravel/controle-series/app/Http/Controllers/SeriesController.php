@@ -9,19 +9,11 @@ class SeriesController extends Controller
 {
     public function index(Request $request)
     {
-        $series = Serie::all();
-        /* $series = [
-            'Grey\'s Anatomy',
-            'Lost',
-            'Agents of SHIELD',
-            'Brooklyn Nine Nine',
-            'Friends',
-            'How I met your mother',
-            'Big Bang Theory',
-            'The Simpsons',
-        ]; */
+        $series = Serie::query()->orderBy('nome')->get();
+        $mensagem = $request->session()->get('mensagem');
+        $request->session()->remove('mensagem');
 
-        return view('series.index', compact('series'));
+        return view('series.index', compact('series', 'mensagem'));
     }
 
     public function create()
@@ -33,9 +25,11 @@ class SeriesController extends Controller
     {
         $nome = $request->nome;
         $serie = Serie::create($request->all());
-        /* $serie = new Serie();
-        $serie->nome = $nome;
-         var_dump($serie->save());*/
-        echo "Série com id ({$serie->id}) criada: ({$serie->nome})";
+        $request->session()->flash(
+            'mensagem',
+            "Série com id ({$serie->id}) criada: ({$serie->nome})"
+        );
+
+        return redirect('/series');
     }
 }
