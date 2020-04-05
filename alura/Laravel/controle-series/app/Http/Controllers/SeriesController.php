@@ -18,12 +18,7 @@ class SeriesController extends Controller
             'Big Bang Theory',
             'The Simpsons',
         ];
-        $html = '<ul>';
-        foreach ($series as $serie) {
-            $html .= "<li>{$serie}</li>";
-        }
-        $html .= '</ul>';
 
-        return $html;
+        return view('series.index', compact('series'));
     }
 }
