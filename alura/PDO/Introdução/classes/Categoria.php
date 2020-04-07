@@ -1,5 +1,7 @@
 <?php
 
+require_once 'config/Conexao.php';
+
 class Categoria
 {
     public $id;
@@ -8,9 +10,16 @@ class Categoria
     public function listar(): array
     {
         $query = 'SELECT id, nome FROM categorias';
-        $conexao = new PDO('mysql:host=192.168.1.100;dbname=estoque', 'programador', 'Brasil2020');
+        $conexao = Conexao::getConexao();
         $resultado = $conexao->query($query);
 
         return $resultado->fetchAll();
+    }
+
+    public function inserir(): void
+    {
+        $query = "INSERT INTO categorias(nome) VALUES ('{$this->nome}')";
+        $conexao = Conexao::getConexao();
+        $conexao->exec($query);
     }
 }
