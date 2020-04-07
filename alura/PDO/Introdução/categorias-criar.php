@@ -1,4 +1,4 @@
-<?php require_once 'cabecalho.php' ?>
+<?php require_once 'cabecalho.php'; ?>
 
 <div class="row">
     <div class="col-md-12">
@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<form action="#" method="post">
+<form action="categorias-criar-post.php" method="post">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="form-group">
@@ -18,4 +18,4 @@
     </div>
 </form>
 
-<?php require_once 'rodape.php' ?>
+<?php require_once 'rodape.php'; ?>
