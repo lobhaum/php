@@ -8,6 +8,6 @@ switch($_SERVER['PATH_INFO']){
         require "formulario-novo-curso.php";
     break;
     default:
-    echo "Página não encontrada";
+    require "pageNotFound.php";
 
 }
