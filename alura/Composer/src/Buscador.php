@@ -18,7 +18,8 @@ class Buscador
 
     /**
      * Buscador constructor.
-     * @param ClientInterface $
+     * @param ClientInterface $httpClient
+     * @param Crawler $crawler
      */
     public function __construct(ClientInterface $httpClient, Crawler $crawler)
     {
