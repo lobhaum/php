@@ -1,0 +1,41 @@
+{
+    "name": "lobhaum/buscardor-cursos",
+    "description": "Localizador de cursos na plataforma alura",
+    "type": "library",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "lobhaum",
+            "email": "contato@eduardoluciano.com.br"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5",
+        "symfony/dom-crawler": "^5.0",
+        "symfony/css-selector": "^5.0"
+    },
+    "autoload": {
+        "classmap": [
+            "test/"
+        ],
+        "psr-4": {
+            "Alura\\BuscardorCursos\\": "src/"
+        }
+    },
+    "scripts": {
+        "cs": "phpcs --standard=PSR12 src/",
+        "phan": "phan --allow-polyfill-parser",
+        "check": [
+            "@phan",
+            "@cs"
+        ]
+    },
+    "scripts-descriptions": {
+        "check": "Roda as verificacoes do código PHAN e PHPCS."
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1",
+        "squizlabs/php_codesniffer": "^3.5",
+        "phan/phan": "^2.7"
+    }
+}
