@@ -13,8 +13,8 @@ echo "a nota de historia é: $notaHistoria\n\r";
 echo "a nota de quimica é: $notaQuimica\n\r";
 
 $media = ($notaPortugues + $notaMatematica
-    + $notaGeografia + $notaHistoria
-    + $notaQuimica)/5;
+        + $notaGeografia + $notaHistoria
+        + $notaQuimica) / 5;
 
 echo "A media é: $media\n\r";
 
